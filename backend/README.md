@@ -63,6 +63,8 @@ $ npm run test:cov
 ## Migration
 
 npm run typeorm migration:generate -- -n AddEvent
+
+
 npm run typeorm migration:run
 
 ## Support
