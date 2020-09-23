@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "db": "rm -rf entities & npx typeorm-model-generator -h localhost -d e-club -p 3306 -u root -x Ld@deol99 -e mysql -o entities --noConfig true --ce pascal --cp camel",
+    "db": "rm -rf entities & npx typeorm-model-generator -h localhost -d  -p 3306 -u root -x  -e mysql -o entities --noConfig true --ce pascal --cp camel",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
