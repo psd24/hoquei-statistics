@@ -1,0 +1,14 @@
+export class AppConfig {
+
+    public static telegramToken     = '';
+    public static dbUser            = 'root';
+    public static dbPassword        = '';
+    public static dbName            = 'hoquei_statistics';
+    public static emailUsername     = 'gmail username';
+    public static emailPassword     = 'gmail password';
+    public static emailService      = 'gmail';
+    public static emailSubject      = 'CDfsd';
+    public static instagramUsername = 'sd'
+    public static instagramPassword = ''
+
+}

@@ -1,14 +1,18 @@
-import { Column, Entity, OneToMany } from "typeorm";
-import { User } from "./User.entity";
+import { Entity, Column, ManyToOne, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { User } from "./user.entity";
 
-@Entity("role", { schema: "e-club" })
+@Entity('role')
 export class Role {
-  @Column("int", { primary: true, name: "role_id" })
-  roleId: number;
+    @PrimaryGeneratedColumn({ name: 'roleId'})
+    public roleId: number;
 
-  @Column("varchar", { name: "role_type", nullable: true, length: 45 })
-  roleType: string | null;
+    @Column( {name: "roleType", nullable: true, length: 45 })
+    roleType: string;
 
-  @OneToMany(() => User, (user) => user.userRole)
-  users: User[];
+    @OneToMany(() => User, user => user.role)
+    users: User[];
+
+    constructor(roleType: string) {
+        this.roleType = roleType;
+    }
 }
