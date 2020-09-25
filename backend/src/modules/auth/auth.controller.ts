@@ -14,15 +14,15 @@ export class AuthController {
 
     @Post('login')
     async login(@Body() body: LoginDto) {
-      const user = await this.authService.validateUser(body.email, body.password);
+      const user = await this.authService.validateUser(body.userEmail, body.userPassword);
       if (!user) {
         throw new UnauthorizedException();
       }
       return this.authService.login(user);
     }
   
-    @ApiBearerAuth()
-    @UseGuards(JwtAuthGuard)
+    //@ApiBearerAuth()
+    //@UseGuards(JwtAuthGuard)
     @ApiOkResponse({ type: User })
     @Post('register')
     async register(@Body() registerDto: RegisterUserDto): Promise<User> {

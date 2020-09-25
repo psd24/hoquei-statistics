@@ -8,8 +8,8 @@ import { AuthController } from './auth.controller';
 
 
 
-// import { LocalStrategy } from './local.strategy';
-// import { JwtStrategy } from './jwt.strategy';
+import { LocalStrategy } from './local.strategy';
+import { JwtStrategy } from './jwt.strategy';
 import { UsersModule } from '../user/users.module';
 
 
@@ -24,7 +24,7 @@ import { UsersModule } from '../user/users.module';
     }),
     UsersModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
   exports: [AuthService],
   controllers: [AuthController],
 })
