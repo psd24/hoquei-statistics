@@ -5,12 +5,16 @@
     "username": "root",
     "password": "Ld@deol99",
     "database": "e-club",
-    "entities": ["dist/**/*.entity{.ts,.js}"],
+    "entities": ["dist/**/*{.ts,.js}"],
     "synchronize": true,
-"migrations": [
-   "src/migration/**/*.ts"
-],
-"subscribers": [
-   "src/subscriber/**/*.ts"
-]
+    "migrationsRun": true,
+    "logging": true,
+    "logger": "file",  
+    "migrations": ["/migration/**/*{.ts,.js}"],
+    "cli": {     
+      "migrationsDir": "src/migration"
+    },
+    "subscribers": [
+    "src/subscriber/**/*.ts"
+    ]
   }
