@@ -11,8 +11,8 @@ export class RolesController {
 
     constructor(private service: RolesService) { }
 
-    //@ApiBearerAuth()
-    //@UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
+    @UseGuards(JwtAuthGuard)
     @Get()
     get() {
         return this.service.getRoles();
@@ -26,8 +26,8 @@ export class RolesController {
     }
 
 
-    //@ApiBearerAuth()
-    //@UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
+    @UseGuards(JwtAuthGuard)
     @ApiOkResponse({ type: Role })
     @Post()
     post(@Body() roleDto: RolesDto) {

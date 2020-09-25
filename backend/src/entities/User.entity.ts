@@ -14,7 +14,7 @@ export class User {
     @Column({name: "userEmail", nullable: true, length: 45 })
     userEmail: string;
   
-    @Column({name: "userPassword", nullable: true, length: 45 })
+    @Column({name: "userPassword", nullable: true, length: 255 })
     @Exclude()
     userPassword: string;
 
