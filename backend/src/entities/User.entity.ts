@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert, ManyToOne,ManyToMany, BeforeUpdate } from "typeorm"; 
 import { hash } from "bcryptjs";
-import { Role } from "../entities/role.entity";
+import { Role } from "./role.entity";
+import { Exclude } from "class-transformer";
   
 @Entity({ name: 'user' })
 export class User {
@@ -14,6 +15,7 @@ export class User {
     userEmail: string;
   
     @Column({name: "userPassword", nullable: true, length: 45 })
+    @Exclude()
     userPassword: string;
 
     @Column({name: "userToken", nullable: true, length: 45 })
