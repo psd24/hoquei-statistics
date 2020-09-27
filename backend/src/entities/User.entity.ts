@@ -1,6 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert, ManyToOne,ManyToMany, BeforeUpdate } from "typeorm"; 
+import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert, ManyToOne,ManyToMany, BeforeUpdate, OneToMany } from "typeorm"; 
 import { hash } from "bcryptjs";
 import { Role } from "./role.entity";
+import { Player } from "./player.entity";
+import { Club } from "./club.entity";
 import { Exclude } from "class-transformer";
   
 @Entity({ name: 'user' })
@@ -27,7 +29,12 @@ export class User {
     @ManyToOne(() => Role, role => role.users)
     role: Role;
 
-  
+    @OneToMany(() => Player, player => player.users)
+    player: Player[];
+
+    @ManyToOne(() => Club, club => club.users)
+    club: Club;
+
     @BeforeInsert()
     preProcess() {
       return hash(this.userPassword, 10).then(encrypted => this.userPassword = encrypted);
@@ -36,9 +43,7 @@ export class User {
     @BeforeUpdate()
     preProcessUpdate() {
       if (this.userPassword) {
-        return hash(this.userPassword, 10).then(
-          encrypted => (this.userPassword = encrypted),
-        );
+        return hash(this.userPassword, 10).then( encrypted => this.userPassword = encrypted);
       }
     }
 }
