@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse  } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-// import { map, catchError } from 'rxjs/operators';
+import { HttpClient  } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import {User} from '../model/user';
 
 @Injectable({
@@ -20,16 +19,6 @@ export class UserService {
     return this.http.post<User>(this.apiUrl + 'login', user)
 
   }
-  // logout() {
-  //   localStorage.removeItem('currentUser');
-  // }
 
-
-  // isLoggedIn() {
-  //   if (localStorage.getItem('currentUser')) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
 }
 
