@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class=" text-center text-dark text-uppercase mt-4 ">
     Log In Please
   </div>
@@ -17,4 +17,167 @@
 
 </form>
 </div>
+</div> -->
+
+<!-- <section class="login-wrap mtb-40">
+  <div class="container">
+    <div class="row justify-content-center" >
+      <div class="col-md-6">
+        <div class="login-box">
+
+          <h1>  Log In Please </h1>
+
+           <div class="alert alert-danger" *ngIf="Error">
+            {{ massage }}
+           </div>
+
+          <Form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="email" class="mt-3">Your Email</label>
+              <input
+                type="email"
+                formControlName="userEmail"
+                class="form-control"
+                placeholder="Enter your Email"
+                required
+              /> -->
+<!-- <div
+                *ngIf="
+                  userEmail.invalid && (userEmail.dirty || userEmail.touched)
+                "
+                class="error"
+              >
+                <div *ngIf="userEmail.errors">Email is required.</div>
+              </div> -->
+<!-- </div>
+            <div class="form-group">
+              <label for="inputPassword" class="mt-3">Password</label>
+              <input
+                type="password"
+                formControlName="userPassword"
+                class="form-control"
+                placeholder="Enter your Password"
+                required
+              /> -->
+<!-- <div
+                *ngIf="
+                  userPassword.invalid &&
+                  (userPassword.dirty || userPassword.touched)
+                "
+                class="error"
+              >
+                <div *ngIf="userPassword.errors">Password is required.</div>
+              </div> -->
+<!-- </div>
+            <div class="checkbox mb-3 mt-3">
+              <label>
+                <input type="checkbox" value="remember-me" /> Remember me
+              </label>
+            </div>
+
+            <div class="form-group">
+              <button
+                type="submit"
+                [disabled]="!loginForm.value"
+                class="btn btn-primary btn-block mt-3"
+              >
+                Log In
+              </button>
+            </div>
+          </Form>
+        </div>
+      </div>
+    </div> -->
+<!-- <div class="service-error" *ngIf="error">
+        <h1>{{error.errorTitle}}</h1>
+        <h3>{{error.errorDesc}}</h3>
+     </div> -->
+<!-- </div>
+
+</section> -->
+<section class="login-wrap mtb-40">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="login-box">
+        <h1  class="mt-3 text-center" >Log In Please</h1>
+        <div class="alert alert-danger" *ngIf="Error">
+          {{ massage }}
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="email" class="mt-3">Your Email</label>
+                <input
+                  formControlName="userEmail"
+                  [ngClass]="{ 'is-invalid': submitted && h.userEmail.errors }"
+                  type="text"
+                  class="form-control"
+                />
+
+                <div
+                  *ngIf="h.userEmail.touched && h.userEmail.errors"
+                  class="text-warning"
+                >
+                  <div *ngIf="h.userEmail.errors.required">Email is required</div>
+                  <div *ngIf="h.userEmail.errors.userEmail">
+                    Email must be a valid email address
+                  </div>
+                </div>
+              </div>
+
+              <!-- <ng-container *ngIf="h.userEmail.touched && h.userEmail.errors">
+                <div *ngIf="h.userEmail.errors.required" class="text-danger">
+                  email is required.
+                </div>
+              </ng-container> -->
+
+                <div class="form-group ">
+                  <label for="inputPassword" class="mt-3">Password</label>
+                  <input
+                    formControlName="userPassword"
+                    [ngClass]="{ 'is-invalid': submitted && h.userPassword.errors }"
+                    type="password"
+                    class="form-control"
+                  />
+                  <div
+                    *ngIf="h.userPassword.touched && h.userPassword.errors"
+                    class="text-warning"
+                  >
+                    <div *ngIf="h.userPassword.errors.required">
+                      Password is required
+                    </div>
+                    <div *ngIf="h.userPassword.errors.minlength">
+                      Password must be at least 6 characters
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group form-check">
+                  <input
+                    formControlName="acceptTandC"
+                    [ngClass]="{
+                      'is-invalid': submitted && h.acceptTandC.errors
+                    }"
+                    type="checkbox"
+                    id="acceptTerms"
+                    class="form-check-input"
+                  />
+                  <label for="acceptTerms" class="form-check-label">
+                    Remember me </label
+                  >
+                  <div class="text-warning">Accept Ts & Cs is required</div>
+                 </div>
+
+                <div class="text-center">
+                  <button class="btn btn-primary btn-block mt-3">
+                    Log In
+                  </button>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</section>
