@@ -7,7 +7,7 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+ 
   app.useGlobalPipes(new ValidationPipe());
 
   const options = new DocumentBuilder()
@@ -21,7 +21,7 @@ async function bootstrap() {
 
   // const seedService = app.get(SeedService);
   // await seedService.start();
-
+  app.enableCors();
   await app.listen(3000);
 }
 bootstrap();

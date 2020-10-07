@@ -8,15 +8,20 @@ import {User} from '../model/user';
 })
 export class UserService {
 
-  apiUrl: 'http://localhost:3306/';
+   apiUrl:string;//= 'http://localhost:3000/';
 
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient) {
+    this.apiUrl="http://localhost:3000/auth/";
+   }
   redirectUrl: string;
 
   loginuser(user: User):Observable<User> {
 
+    // this.http.post<User>(this.apiUrl + 'register', user);
+
     return this.http.post<User>(this.apiUrl + 'login', user)
+
 
   }
 
